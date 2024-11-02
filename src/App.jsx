@@ -30,7 +30,7 @@ function App() {
 const Header = () => (
   <header className="sidebar">
     <div className="header-content">
-      <img src="/public/tsivos-high-resolution-logo-white-transparent.png" className="profile-image" alt="Profile" />
+      <img src="/tsivos-high-resolution-logo-white-transparent.png" className="profile-image" alt="Profile" />
       <h1 className="logo">
         <span className="greeting">Hello, I'm</span>
         <br />
@@ -49,7 +49,7 @@ const Header = () => (
     </nav>
     <div className="header-made-by">
       Made by me with
-      <img src="public/kyKz5-removebg-preview.png" alt="React Logo" className="made-by-image" />
+      <img src="/kyKz5-removebg-preview.png" alt="React Logo" className="made-by-image" />
     </div>
 
 
@@ -83,7 +83,7 @@ const Education = () => (
         {/* Education Image with link to uniwa.gr */}
         <a href="https://ice.uniwa.gr/en/home/" target="_blank" rel="noopener noreferrer">
           <img
-            src="public/pada.png"
+            src="/pada.png"
             alt="Education"
             className="education-image"
             style={{ width: '200px', height: '200px', marginRight: '10px' }}
@@ -114,11 +114,11 @@ const Education = () => (
 
 const Skills = () => {
   const skillList = [
-    { name: "C++", image: "public/logos/c++.png" },
-    { name: "Arduino", image: "public/logos/arduino.png" },
-    { name: "Python", image: "public/logos/pyhton.png" },
-    { name: "React", image: "public/logos/react.png" },
-    { name: "Android Studio", image: "public/logos/android.png" },
+    { name: "C++", image: "/logos/c++.png" },
+    { name: "Arduino", image: "/logos/arduino.png" },
+    { name: "Python", image: "/logos/pyhton.png" },
+    { name: "React", image: "/logos/react.png" },
+    { name: "Android Studio", image: "/logos/android.png" },
   ];
 
   return (
@@ -140,31 +140,31 @@ const PreviousWork = () => {
   const companies = [
     {
       name: 'Company A',
-      image: 'public/logos/image-removebg-preview (8).png',
+      image: '/logos/image-removebg-preview (8).png',
       url: 'https://tempoevents.gr',
       role: 'Audiovisual Technician'
     },
     {
       name: 'Company B',
-      image: 'public/logos/image-removebg-preview (10).png',
+      image: '/logos/image-removebg-preview (10).png',
       url: 'https://avitron.gr',
       role: 'Equipment Transportation & Installation'
     },
     {
       name: 'Company C',
-      image: 'public/logos/image-removebg-preview (13).png',
+      image: '/logos/image-removebg-preview (13).png',
       url: 'https://projector-web.gr/gr/home',
       role: 'Live-Stream Operator'
     },
     {
       name: 'Company D',
-      image: 'public/logos/image-removebg-preview (9).png',
+      image: '/logos/image-removebg-preview (9).png',
       url: 'https://www.utg-greece.com',
       role: 'LED Screen Technician'
     },
     {
       name: 'Company E',
-      image: 'public/logos/image-removebg-preview (14).png',
+      image: '/logos/image-removebg-preview (14).png',
       url: 'https://www.promatas.com',
       role: 'Conference Organization Assistant'
     },
@@ -202,7 +202,7 @@ const Projects = () => {
     {
       title: "Application of IOT Technology and Cloud Computing for the Automation of Olive Oil Production Processes",
       description: "This project aims to demonstrate how IOT and Cloud technologies can be combined to improve the Olive Oil production processes and achieve quality and reliability.",
-      image: "public/oil1.JPG",
+      image: "/oil1.JPG",
       link: "https://polynoe.lib.uniwa.gr/xmlui/handle/11400/6238?locale-attribute=en",
       link2: "https://polynoe.lib.uniwa.gr/xmlui/bitstream/handle/11400/6238/Tsivos_242017028.pdf?sequence=1&isAllowed=y",
       details: "This thesis focuses on the development of an advanced application that integrates Cloud Computing and the Internet of Thing for monitoring and automating Olive Oil production processes. The main functionality of the system is the continuous measurement of temperatures at various stages of the production while providing reliable data that confirms and reassures the quality of the produced Olive Oil based on specifications defined by the European Union.",
@@ -210,13 +210,13 @@ const Projects = () => {
     {
       title: "Virtual Reality Museum with interactive exhibits & Programmed Guide",
       description: "Visitors can explore artifacts, artworks, and historical displays in a realistic 3D environment, while the guide provides information, insights, and a seamless, interactive educational experience.",
-      image: "public/logos/vr.PNG",
+      image: "/logos/vr.PNG",
       details: "The Virtual Reality Museum is an immersive experience designed to make cultural and historical artifacts accessible from anywhere. Users enter a fully 3D-rendered environment that replicates the feel of a real museum, complete with lifelike textures. It features Interactive Exhibits, a Programmed Guide, Virtual Navigation and Educational Content",
     },
     {
       title: "Website for Real Estate Advertisement",
       description: "This is a brief description of Project Three.",
-      image: "public/logos/site1.png",
+      image: "/logos/site1.png",
       details: "Additional insights into Project Three, covering project goals, technical details, and user feedback.",
     },
 

@@ -10,7 +10,7 @@ body {
   color: #f5f5f5;
   line-height: 1.6;
   scroll-behavior: smooth;
-  cursor: url('/home/user/portfolio/public/cursor/pointer.cur'), auto;
+  cursor: url('/cursor/pointer.cur'), auto;
 }
 
 .App {
@@ -20,7 +20,7 @@ body {
 }
 
 .sidebar {
-  cursor: url('/home/user/portfolio/public/cursor/pointer.cur'), auto; /* Custom cursor with fallback */
+  cursor: url('/cursor/pointer.cur'), auto; /* Custom cursor with fallback */
   position: fixed; /* Keep the sidebar fixed */
   top: 0;
   left: 0;
@@ -33,7 +33,7 @@ body {
 
 
 .main-content {
-  background: url('public/logos/sylwia-bartyzel-r9HPwQSJqVg-unsplash.jpg') no-repeat center center fixed;
+  background: url('/logos/sylwia-bartyzel-r9HPwQSJqVg-unsplash.jpg') no-repeat center center fixed;
   background-attachment: fixed;
   background-size: cover;
   flex: 1;
