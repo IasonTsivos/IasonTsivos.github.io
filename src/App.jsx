@@ -165,7 +165,7 @@ const PreviousWork = () => {
     {
       name: 'Company E',
       image: '/logos/image-removebg-preview (14).png',
-      url: 'https://www.promatas.com',
+      url: 'https://www.podimatas.gr',
       role: 'Conference Organization Assistant'
     },
   ];
