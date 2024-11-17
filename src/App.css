@@ -5,7 +5,7 @@ html{
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Syne', sans-serif;
   margin: 0;
   color: #f5f5f5;
   line-height: 1.6;
@@ -14,23 +14,112 @@ body {
 }
 
 .App {
-  display: flex; /* Use flexbox for sidebar and main content */
-  flex-direction: row; /* Ensure it's in a row */
+  display: flex; /* Flexbox for sidebar and main content */
+  flex-direction: row;
   height: 100%; /* Full viewport height */
+  width: 100%; /* Ensure it takes the full width */
 }
 
+.sidebar.closed + .main-content {
+  margin-left: 0; /* Remove left margin when sidebar is closed */
+  width: 100%; /* Make main content span the full width */
+}
+
+.sidebar.open + .main-content {
+  margin-left: 20%; /* Space for the sidebar */
+  width: calc(100% - 20%); /* Adjust width dynamically */
+}
+
+
 .sidebar {
-  cursor: url('/cursor/pointer.cur'), auto; /* Custom cursor with fallback */
+  cursor: url('/cursor/pointer.cur'), auto; /* Custom cursor */
   position: fixed; /* Keep the sidebar fixed */
   top: 0;
   left: 0;
-  width: 20%; /* Sidebar now takes up 20% of the screen width */
+  width: 20%; /* Sidebar width */
   height: 100%; /* Full height */
   background-color: #1e1e1e; /* Sidebar background color */
   padding: 20px; /* Padding inside the sidebar */
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Shadow for sidebar */
+  transition: width 0.3s ease, transform 0.3s ease; /* Smooth transition for toggle */
 }
 
+.sidebar.open {
+  width: 20%; /* Sidebar width when open */
+}
+
+.sidebar.closed {
+  width: 5%; /* Sidebar width when closed */
+}
+
+.sidebar.closed + .main-content {
+  margin-left: 5%; /* Adjust main content margin to match the closed sidebar */
+  width: calc(100% - 5%); /* Fill the remaining space */
+}
+
+.sidebar.open + .main-content {
+  margin-left: 20%; /* Adjust main content margin to match the open sidebar */
+  width: calc(100% - 20%); /* Fill the remaining space */
+}
+
+.sidebar.open .nav-links a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Sidebar styles for when it's closed */
+.sidebar.closed .nav-links a {
+  display: flex;
+  justify-content: center; /* Center-align the icons when the sidebar is closed */
+}
+
+/* Ensure that the icon stays visible */
+.sidebar .nav-links .icon {
+  display: inline-block; /* Always show icons */
+}
+
+/* Hide the text when the sidebar is closed */
+.sidebar.closed .nav-links .text {
+  display: none;
+}
+
+/* Optional: Adjust icon size when sidebar is closed */
+.sidebar.closed .nav-links .icon {
+  font-size: 1.5rem; /* You can adjust this value to make the icons larger */
+}
+
+/* Navigation item hover effect */
+.nav-links a:hover {
+  color: #faed39; /* Change text color when hovered */
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+.toggle-button {
+  position: absolute;
+  top: 20px;
+  background-color: #faed39; /* Highlighted button color */
+  color: #1e1e1e;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px; /* Narrower sidebar for smaller screens */
+  }
+}
+
+.toggle-button:hover {
+  background-color: #ffd700;
+}
 
 .main-content {
   background: url('/logos/sylwia-bartyzel-r9HPwQSJqVg-unsplash.jpg') no-repeat center center fixed;
@@ -113,6 +202,20 @@ h2 {
   transition: color 0.3s ease;
 }
 
+.sidebar.closed .nav-links a {
+  justify-content: center; /* Center-align the icon when the sidebar is closed */
+  font-size: 1.5rem; /* Ensure the icons are large enough to be clear */
+}
+
+.sidebar.closed .nav-links a span {
+  display: none; /* Hide the text next to the icon */
+}
+
+.sidebar.open .nav-links a span {
+  display: inline-block; /* Show the text when the sidebar is open */
+}
+
+
 .nav-links a::after {
   content: '';
   position: absolute;
@@ -139,23 +242,6 @@ h2 {
   font-size: 1.2rem;
 }
 
-.header-made-by {
-  position: absolute; /* Absolute positioning for placement in the corner */
-  bottom: 70px; /* Distance from the bottom */
-  left: 20px; /* Distance from the left */
-  font-size: 0.8rem; /* Smaller font size */
-  color: #888; /* Subtle text color */
-  opacity: 0.7; /* Slight transparency */
-  font-weight: 400; /* Optional: lighter font weight */
-  display: flex; /* Flexbox for horizontal alignment */
-  align-items: center; /* Vertical alignment */
-}
-
-.made-by-image {
-  width: 75px; /* Adjust size as needed */
-  height: auto;
-  margin-left: 5px; /* Space between image and text */
-}
 
 /*-------------------------------- About Section Styles --------------------------------*/
 

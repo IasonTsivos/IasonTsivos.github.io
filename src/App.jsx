@@ -8,13 +8,32 @@ import 'aos/dist/aos.css'; // Import AOS styles
 library.add( faBookOpenReader, faUser, faGraduationCap, faBriefcase, faProjectDiagram, faEnvelope);
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with a duration of 1000ms
+    AOS.init({ duration: 1000 }); // Initialize AOS
+
+    // Set sidebar default based on screen size
+    const handleResize = () => {
+      if (window.innerWidth <= 768) {
+        setIsSidebarOpen(false); // Closed on mobile devices
+      } else {
+        setIsSidebarOpen(true); // Open on larger screens
+      }
+    };
+
+    handleResize(); // Run on initial render
+    window.addEventListener('resize', handleResize); // Update on resize
+
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
   return (
     <div className="App">
-      <Header />
+      <Header isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
       <div className="main-content">
         <About />
         <Education />
@@ -27,34 +46,64 @@ function App() {
   );
 }
 
-const Header = () => (
-  <header className="sidebar">
+const Header = ({ isSidebarOpen, toggleSidebar }) => (
+  <header className={`sidebar ${isSidebarOpen ? 'open' : 'closed'}`}>
+    <button className="toggle-button" onClick={toggleSidebar}>
+      {isSidebarOpen ? 'X' : '☰'}
+    </button>
     <div className="header-content">
       <img src="/tsivos-high-resolution-logo-white-transparent.png" className="profile-image" alt="Profile" />
-      <h1 className="logo">
-        <span className="greeting">Hello, I'm</span>
-        <br />
-        Iason Tsivos
-      </h1>
+      {isSidebarOpen && (
+        <h1 className="logo">
+          <span className="greeting">Hello, I'm</span>
+          <br />
+          Iason Tsivos
+        </h1>
+      )}
     </div>
     <nav className="nav">
       <ul className="nav-links">
-        <li><a href="#about"><FontAwesomeIcon icon="user" /> About</a></li>
-        <li><a href="#education"><FontAwesomeIcon icon="graduation-cap" /> Education</a></li>
-        <li><a href="#skills"><FontAwesomeIcon icon="book-open-reader" /> Skills</a></li>
-        <li><a href="#work"><FontAwesomeIcon icon="briefcase" /> Work</a></li>
-        <li><a href="#projects"><FontAwesomeIcon icon="project-diagram" /> Projects</a></li>
-        <li><a href="#contact"><FontAwesomeIcon icon="envelope" /> Connect</a></li>
+        <li>
+          <a href="#about">
+            <span className="icon"><FontAwesomeIcon icon="user" /></span>
+            {isSidebarOpen && <span className="text"> About</span>}
+          </a>
+        </li>
+        <li>
+          <a href="#education">
+            <span className="icon"><FontAwesomeIcon icon="graduation-cap" /></span>
+            {isSidebarOpen && <span className="text"> Education</span>}
+          </a>
+        </li>
+        <li>
+          <a href="#skills">
+            <span className="icon"><FontAwesomeIcon icon="book-open-reader" /></span>
+            {isSidebarOpen && <span className="text"> Skills</span>}
+          </a>
+        </li>
+        <li>
+          <a href="#work">
+            <span className="icon"><FontAwesomeIcon icon="briefcase" /></span>
+            {isSidebarOpen && <span className="text"> Work</span>}
+          </a>
+        </li>
+        <li>
+          <a href="#projects">
+            <span className="icon"><FontAwesomeIcon icon="project-diagram" /></span>
+            {isSidebarOpen && <span className="text"> Projects</span>}
+          </a>
+        </li>
+        <li>
+          <a href="#contact">
+            <span className="icon"><FontAwesomeIcon icon="envelope" /></span>
+            {isSidebarOpen && <span className="text">Connect</span>}
+          </a>
+        </li>
       </ul>
     </nav>
-    <div className="header-made-by">
-      Made by me with
-      <img src="/kyKz5-removebg-preview.png" alt="React Logo" className="made-by-image" />
-    </div>
-
-
   </header>
 );
+
 
 const About = () => (
   <section id="about" className="about" data-aos="fade-up">
