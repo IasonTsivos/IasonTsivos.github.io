@@ -52,7 +52,9 @@ const Header = ({ isSidebarOpen, toggleSidebar }) => (
       {isSidebarOpen ? 'X' : '☰'}
     </button>
     <div className="header-content">
-      <img src="/tsivos-high-resolution-logo-white-transparent.png" className="profile-image" alt="Profile" />
+    {isSidebarOpen && (
+        <img src="/tsivos-high-resolution-logo-white-transparent.png" className="profile-image" alt="Profile" />
+      )}
       {isSidebarOpen && (
         <h1 className="logo">
           <span className="greeting">Hello, I'm</span>
@@ -62,45 +64,45 @@ const Header = ({ isSidebarOpen, toggleSidebar }) => (
       )}
     </div>
     <nav className="nav">
-      <ul className="nav-links">
-        <li>
-          <a href="#about">
-            <span className="icon"><FontAwesomeIcon icon="user" /></span>
-            {isSidebarOpen && <span className="text"> About</span>}
-          </a>
-        </li>
-        <li>
-          <a href="#education">
-            <span className="icon"><FontAwesomeIcon icon="graduation-cap" /></span>
-            {isSidebarOpen && <span className="text"> Education</span>}
-          </a>
-        </li>
-        <li>
-          <a href="#skills">
-            <span className="icon"><FontAwesomeIcon icon="book-open-reader" /></span>
-            {isSidebarOpen && <span className="text"> Skills</span>}
-          </a>
-        </li>
-        <li>
-          <a href="#work">
-            <span className="icon"><FontAwesomeIcon icon="briefcase" /></span>
-            {isSidebarOpen && <span className="text"> Work</span>}
-          </a>
-        </li>
-        <li>
-          <a href="#projects">
-            <span className="icon"><FontAwesomeIcon icon="project-diagram" /></span>
-            {isSidebarOpen && <span className="text"> Projects</span>}
-          </a>
-        </li>
-        <li>
-          <a href="#contact">
-            <span className="icon"><FontAwesomeIcon icon="envelope" /></span>
-            {isSidebarOpen && <span className="text">Connect</span>}
-          </a>
-        </li>
-      </ul>
-    </nav>
+        <ul className="nav-links">
+          <li>
+            <a href="#about">
+              <span className="icon"><FontAwesomeIcon icon="user" /></span>
+              {isSidebarOpen && <span className="text">About</span>}
+            </a>
+          </li>
+          <li>
+            <a href="#education">
+              <span className="icon"><FontAwesomeIcon icon="graduation-cap" /></span>
+              {isSidebarOpen && <span className="text">Education</span>}
+            </a>
+          </li>
+          <li>
+            <a href="#skills">
+              <span className="icon"><FontAwesomeIcon icon="book-open-reader" /></span>
+              {isSidebarOpen && <span className="text">Skills</span>}
+            </a>
+          </li>
+          <li>
+            <a href="#work">
+              <span className="icon"><FontAwesomeIcon icon="briefcase" /></span>
+              {isSidebarOpen && <span className="text">Work</span>}
+            </a>
+          </li>
+          <li>
+            <a href="#projects">
+              <span className="icon"><FontAwesomeIcon icon="project-diagram" /></span>
+              {isSidebarOpen && <span className="text">Projects</span>}
+            </a>
+          </li>
+          <li>
+            <a href="#contact">
+              <span className="icon"><FontAwesomeIcon icon="envelope" /></span>
+              {isSidebarOpen && <span className="text">Connect</span>}
+            </a>
+          </li>
+        </ul>
+      </nav>
   </header>
 );
 
